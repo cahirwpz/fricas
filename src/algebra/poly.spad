@@ -310,6 +310,7 @@ PolynomialRing(R : Join(SemiRng, AbelianMonoid), E : OrderedAbelianMonoid
               ) : T == C
  where
   T == Join(FiniteAbelianMonoidRing(R, E),
+            FreeModuleCategory(R, E),
             VariablesCommuteWithCoefficients) with
     --assertions
        if R has IntegralDomain and E has CancellationAbelianMonoid then
