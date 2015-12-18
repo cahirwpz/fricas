@@ -93,7 +93,13 @@ FreeModuleCategory(R, S) : Category == Exports where
           totalDegree(p: %): NonNegativeInteger ==
              V ==> Vector NonNegativeInteger
              zero? p => 0
-             "max"/[reduce("+", s::V, 0) for s in support p]
+             t: NonNegativeInteger := 0
+             for s in support p repeat
+                 v := s::V
+                 d: NonNegativeInteger := 0
+                 for i in 1..#v repeat d := d + qelt(v, i)
+                 t := max(t, d)
+             t
 
 )abbrev domain FM FreeModule
 ++ Author: Dave Barton, James Davenport, Barry Trager
